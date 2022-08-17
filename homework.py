@@ -113,12 +113,14 @@ class Swimming(Training):
         self.count_pool = count_pool
 
     def get_mean_speed(self) -> float:
-        return self.length_pool * self.count_pool / self.M_IN_KM / self.duration
+        return (self.length_pool * self.count_pool
+                / self.M_IN_KM / self.duration)
 
     def get_spent_calories(self) -> float:
         coeff_calorie_1 = 1.1
         coeff_calorie_2 = 2
-        return (self.get_mean_speed() + coeff_calorie_1) * coeff_calorie_2 * self.weight
+        return ((self.get_mean_speed() + coeff_calorie_1)
+                * coeff_calorie_2 * self.weight)
 
 
 def read_package(workout_type: str, data: list) -> Training:
