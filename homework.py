@@ -77,7 +77,6 @@ class SportsWalking(Training):
         super().__init__(action, duration, weight)
         self.height = height
 
-
     def get_spent_calories(self) -> float:
         coeff_calorie_1 = 0.035
         coeff_calorie_2 = 2
@@ -111,9 +110,9 @@ class Swimming(Training):
 
 def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
-    trainings = {'SWM':Swimming,
-                 'RUN':Running,
-                 'WLK':SportsWalking}
+    trainings = {'SWM': Swimming,
+                 'RUN': Running,
+                 'WLK': SportsWalking}
     return trainings[workout_type](*data)
 
 
@@ -133,4 +132,3 @@ if __name__ == '__main__':
     for workout_type, data in packages:
         training = read_package(workout_type, data)
         main(training)
-        
