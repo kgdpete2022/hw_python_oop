@@ -118,9 +118,9 @@ def read_package(workout_type: str, data: list) -> Training:
     trainings = {'SWM': Swimming,
                  'RUN': Running,
                  'WLK': SportsWalking}
-    try:
+    if workout_type in trainings:
         return trainings[workout_type](*data)
-    except KeyError:
+    else:
         print('Указан неверный тип тренировки')
 
 
